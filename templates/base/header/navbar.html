@@ -1,0 +1,83 @@
+{% load staticfiles %}
+<!-- =========================
+        Main Menu Section
+    ============================== -->
+    <section id="main-menu" class="sticker-nav style-four double-bg">
+    	<div class="container-fluid custom-width">
+    		<div class="row">
+    			<div class="cus-wd-l p0 angle">
+					<div class="menu-container wd-megamenu">
+					  <div class="menu">
+					    <ul class="wd-megamenu-ul">
+					      <li><a href="{% url 'home' %}" class="main-menu-list"><i class="fa fa-home" aria-hidden="true"></i>Home </a></li>
+					      <li class="pos-inherit"><a href="{% url 'shop' %}" class="main-menu-list ">Shop <i class="fa fa-angle-down angle-down" aria-hidden="true"></i></a>
+                                    <ul class="single-dropdown normal-sub">
+                                        <li><a href="#" class="menu-subtitle">Categories</a>
+                                            <ul class="sub-menu-list">
+                                                {% for Category in product_categories %}
+                                                    <li><a href="{% url 'category' Category.name %}"><i class="fa fa-angle-double-right" aria-hidden="true"></i> {{ Category }}</a></li>
+                                                {% endfor %}
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+					      <li class="pos-inherit"><a href="http://127.0.0.1:8001/Contacts" class="main-menu-list ">Contact us</a></li>
+					    </ul>
+					  </div>
+					</div>
+    			</div>
+				<div class="cus-wd-r text-right ext-right p0">
+					<div class="acc-header-wraper">
+						<!-- ========================= Cart Out ============================== -->
+						
+							<div class="header-cart style-four">
+
+								<div class="dropdown wd-compare-btn">
+                                <button class="btn btn-primary" style="background: black; border: 0px" data-toggle="modal" data-target=".bd-example-modal-lg2">
+                                    <span>Cart</span>
+                                </button>
+								  <button class="btn btn-secondary dropdown-toggle compare-btn" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+								  </button>
+                                  {% if products_total_nmb %}
+								     <span class="count" id="basket_total_nmb">{{ products_total_nmb }}</span>
+                                  {% else %}
+                                     <span></span>
+                                  {% endif %}
+								  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
+								  	<div class="wd-item-list basket-items">
+                                        {% for product_in_basket in products_in_basket %}
+                                            <div class="media">
+                                                <img class="d-flex mr-3" style="max-width: 68px" src="
+                                                    {% for product_image in products_images %}
+                                                        {% if product_image.product.id == product_in_basket.product.id %}
+                                                            {{ product_image.image.url }}
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                " alt="cart-img">
+                                                <div class="media-body">
+                                                    <h6 class="mt-0 list-group-title"><a href="{% url 'product' product_in_basket.product.id %}">{{ product_in_basket.product.name }}</a> Qty:{{ product_in_basket.nmb }}</h6>
+                                                    <div class="cart-price">${{ product_in_basket.total_price }}</div>
+                                                </div>
+                                                <a class='delete_item' href='' data-product_id="{{ product_in_basket.id }}">x</a>"
+                                            </div>
+
+                                        {% endfor %}
+
+
+									</div>
+								  	<div class="media text-center">
+                                        <span id="basket_total_amount"></span>
+										<a href="{% url 'checkout' %}" class="btn btn-primary go-compare-page">Go to Cart
+										<i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+									</div>
+								  </div>
+								</div>
+							</div>
+				    </div>
+				</div>
+
+
+            </div>
+    	</div>
+    </section>

@@ -1,0 +1,65 @@
+{% load staticfiles %}
+<!-- =========================
+        Footer Section
+    ============================== -->
+    <footer class="footer wow fadeInUp animated" data-wow-delay="900ms">
+    	<div class="container-fluid custom-width">
+    		<div class="row">
+    			<div class="col-md-3">
+    				<!-- ===========================
+    						Footer About
+    					 =========================== -->
+    				<div class="footer-about">
+	    				<a href="#" class="footer-about-logo">
+	    					<img src="{% static "img/logo/try2.png" %}" alt="Logo">
+	    				</a>
+
+    				</div>
+    			</div>
+    			<div class="col-md-2 footer-view-controller">
+    				<!-- ===========================
+    						Festival Deals
+    					 =========================== -->
+    				<div class="footer-nav">
+	    				<h6 class="footer-subtitle active-color">Navigation</h6>
+	    				<ul>
+	    					<li><a href="{% url 'home' %}"> Home </a></li>
+	    					<li><a href="{% url 'shop' %}">Shop </a></li>
+	    				</ul>
+    				</div>
+    			</div>
+
+    			<div class="col-md-2 footer-view-controller">
+    				<!-- ===========================
+    						Need Help ?
+    					 =========================== -->
+    				<div class="footer-nav">
+	    				<h6 class="footer-subtitle">Need Help ?</h6>
+	    				<ul>
+	    					<li><a href="">Contact us</a></li>
+	    				</ul>
+	    			</div>
+    			</div>
+
+    		</div>
+    	</div>
+    </footer>
+    <!-- =========================
+        CopyRight
+    ============================== -->
+    <section class="copyright wow fadeInUp animated" data-wow-delay="1500ms">
+	    <div class="container-fluid custom-width">
+	    	<div class="row">
+	    		<div class="col-md-6">
+	    			<div class="copyright-text">
+	    				<p class="text-uppercase">COPYRIGHT &copy; 2019</p><a class="created-by" href="{% url 'home' %}">FutureTech</a>
+	    			</div>
+	    		</div>
+                <div class="col-md-2">
+	    			<div class="copyright-text">
+                        <p class="created-by">Web Design & Support by DiAndjelo</p>
+	    			</div>
+	    		</div>
+	    	</div>
+	    </div>
+	</section>

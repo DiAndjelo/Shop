@@ -1,0 +1,333 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+    <!-- =========================
+        Product Details Section
+    ============================== -->
+    <section class="product-details">
+    	<div class="container">
+    		<div class="row">
+				<div class="col-12 p0">
+					<div class="page-location">
+						<ul>
+							<li><a href="{% url 'home' %}">
+								Home  <span class="divider">/</span>
+							</a></li>
+                            <li><a href="{% url 'shop' %}">
+								 Shop <span class="divider">/</span>
+							</a></li>
+                            <li><a href="#">
+								{{ product.category }}
+                                <span class="divider">/</span>
+							</a></li>
+							<li><a class="page-location-active" href="#">
+								{{ product.name }}
+								<span class="divider">/</span>
+							</a></li>
+						</ul>
+					</div>
+				</div>
+	    		<div class="col-12 product-details-section">
+				    <!-- ====================================
+				        Product Details Gallery Section
+				    ========================================= -->
+					<div class="row">
+						<div class="product-gallery col-12 col-md-12 col-lg-6">
+						    <!-- ====================================
+						        Single Product Gallery Section
+						    ========================================= -->
+						    <div class="row">
+								<div class="col-md-12 product-slier-details">
+
+								    <ul id="lightSlider">
+                                        {% for product_image in product_images reversed %}
+								        <li data-thumb="{{ product_image.image.url }}">
+								            <img class="figure-img img-fluid" src="{{ product_image.image.url }}" alt="product-img" />
+								        </li>
+                                        {% endfor %}
+								    </ul>
+								</div>
+							</div>
+						</div>
+						<div class="col-6 col-12 col-md-12 col-lg-6">
+							<div class="product-details-gallery">
+								<div class="list-group">
+									<h4 class="list-group-item-heading product-title">
+										{{ product.name }}
+									</h4>
+                                <div class="rating-market-section">
+                                    <span class="badge badge-secondary wd-star-market-badge text-uppercase">4.5 <i class="fa fa-star-o" aria-hidden="true"></i></span>
+                                    <div class="rating-star">
+                                        <div class="review-rating-light-yellow-5 jq-ry-container" style="width: 95px;"><div class="jq-ry-group-wrapper">
+                                            <div class="jq-ry-normal-group jq-ry-group"><!--?xml version="1.0" encoding="utf-8"?--><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 12.705 512 486.59" x="0px" y="0px" xml:space="preserve" width="19px" height="19px" fill="#e3e3e3"><polygon points="256.814,12.705 317.205,198.566 512.631,198.566 354.529,313.435 414.918,499.295 256.814,384.427 98.713,499.295 159.102,313.435 1,198.566 196.426,198.566 "></polygon></svg><!--?xml version="1.0" encoding="utf-8"?--><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 12.705 512 486.59" x="0px" y="0px" xml:space="preserve" width="19px" height="19px" fill="#e3e3e3" style="margin-left: 0px;"><polygon points="256.814,12.705 317.205,198.566 512.631,198.566 354.529,313.435 414.918,499.295 256.814,384.427 98.713,499.295 159.102,313.435 1,198.566 196.426,198.566 "></polygon></svg><!--?xml version="1.0" encoding="utf-8"?--><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 12.705 512 486.59" x="0px" y="0px" xml:space="preserve" width="19px" height="19px" fill="#e3e3e3" style="margin-left: 0px;"><polygon points="256.814,12.705 317.205,198.566 512.631,198.566 354.529,313.435 414.918,499.295 256.814,384.427 98.713,499.295 159.102,313.435 1,198.566 196.426,198.566 "></polygon></svg><!--?xml version="1.0" encoding="utf-8"?--><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 12.705 512 486.59" x="0px" y="0px" xml:space="preserve" width="19px" height="19px" fill="#e3e3e3" style="margin-left: 0px;"><polygon points="256.814,12.705 317.205,198.566 512.631,198.566 354.529,313.435 414.918,499.295 256.814,384.427 98.713,499.295 159.102,313.435 1,198.566 196.426,198.566 "></polygon></svg><!--?xml version="1.0" encoding="utf-8"?--><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 12.705 512 486.59" x="0px" y="0px" xml:space="preserve" width="19px" height="19px" fill="#e3e3e3" style="margin-left: 0px;"><polygon points="256.814,12.705 317.205,198.566 512.631,198.566 354.529,313.435 414.918,499.295 256.814,384.427 98.713,499.295 159.102,313.435 1,198.566 196.426,198.566 "></polygon></svg></div><div class="jq-ry-rated-group jq-ry-group" style="width: 100%;"><!--?xml version="1.0" encoding="utf-8"?--><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 12.705 512 486.59" x="0px" y="0px" xml:space="preserve" width="19px" height="19px" fill="#ff9800"><polygon points="256.814,12.705 317.205,198.566 512.631,198.566 354.529,313.435 414.918,499.295 256.814,384.427 98.713,499.295 159.102,313.435 1,198.566 196.426,198.566 "></polygon></svg><!--?xml version="1.0" encoding="utf-8"?--><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 12.705 512 486.59" x="0px" y="0px" xml:space="preserve" width="19px" height="19px" fill="#ff9800" style="margin-left: 0px;"><polygon points="256.814,12.705 317.205,198.566 512.631,198.566 354.529,313.435 414.918,499.295 256.814,384.427 98.713,499.295 159.102,313.435 1,198.566 196.426,198.566 "></polygon></svg><!--?xml version="1.0" encoding="utf-8"?--><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 12.705 512 486.59" x="0px" y="0px" xml:space="preserve" width="19px" height="19px" fill="#ff9800" style="margin-left: 0px;"><polygon points="256.814,12.705 317.205,198.566 512.631,198.566 354.529,313.435 414.918,499.295 256.814,384.427 98.713,499.295 159.102,313.435 1,198.566 196.426,198.566 "></polygon></svg><!--?xml version="1.0" encoding="utf-8"?--><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 12.705 512 486.59" x="0px" y="0px" xml:space="preserve" width="19px" height="19px" fill="#ff9800" style="margin-left: 0px;"><polygon points="256.814,12.705 317.205,198.566 512.631,198.566 354.529,313.435 414.918,499.295 256.814,384.427 98.713,499.295 159.102,313.435 1,198.566 196.426,198.566 "></polygon></svg><!--?xml version="1.0" encoding="utf-8"?--><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 12.705 512 486.59" x="0px" y="0px" xml:space="preserve" width="19px" height="19px" fill="#ff9800" style="margin-left: 0px;"><polygon points="256.814,12.705 317.205,198.566 512.631,198.566 354.529,313.435 414.918,499.295 256.814,384.427 98.713,499.295 159.102,313.435 1,198.566 196.426,198.566 "></polygon></svg></div></div></div><span class="rating-number">5</span>
+                                    </div>
+                                </div>
+
+								</div>
+
+									<h3 class="list-group-item-heading product-title">
+										${{ product.price }}
+									</h3>
+
+								<div class="list-group content-list">
+                                    {{ product.description|safe }}
+								</div>
+                                <form id="form_buying_product" class="form-inline" action="{% url 'basket_adding' %}">{% csrf_token %}
+                                    <div class="form-group">
+                                        <input type="number" name="number" id="number" class="form-control">
+                                    </div>
+                                    <div class="form-group content-list">
+                                        <div class="compare-btn">
+                                            <button type="submit" class="btn btn-primary btn-buy" id="submit_btn"
+                                                data-product_id = "{{ product.id }}"
+                                                data-product_name = "{{ product.name }}"
+                                                data-product_price = "{{ product.price }}"
+                                                {% for product_image in product_images %}
+                                                    {% if product_image.is_main %}
+                                                        data-product_img = "{{ product_image.image.url }}"
+                                                    {% endif %}
+                                                {% endfor %}
+                                                ><i class="fa fa-exchange" aria-hidden="true">
+                                            </i> Add to compare</button>
+                                        </div>
+                                    </div>
+                                </form>
+							</div>
+						</div>
+					</div>
+	    		</div>
+    		</div>
+			<div class="row">
+				<div class="col-12">
+				<div class="wd-tab-section">
+					<div class="bd-example bd-example-tabs">
+					  <ul class="nav nav-pills mb-3 wd-tab-menu" id="pills-tab" role="tablist">
+					    <li class="nav-item col-6 col-md">
+					      <a class="nav-link active" id="description-tab" data-toggle="pill" href="#description-section" role="tab" aria-controls="description-section" aria-expanded="true">Description</a>
+					    </li>
+                        <li class="nav-item col-6 col-md">
+					      <a class="nav-link" id="full-specifiction-tab" data-toggle="pill" href="#full-specifiction" role="tab" aria-controls="full-specifiction" aria-expanded="false">Full Specifiction</a>
+					    </li>
+                        <li class="nav-item col-6 col-md">
+					      <a class="nav-link" id="reviews-tab" data-toggle="pill" href="#reviews" role="tab" aria-controls="reviews" aria-expanded="true">Reviews</a>
+					    </li>
+
+					  </ul>
+						<div class="tab-content" id="pills-tabContent">
+							<div class="tab-pane fade active show " id="description-section" role="tabpanel" aria-labelledby="description-tab" aria-expanded="true">
+                                <div class="product-tab-content">
+                                {{ product.full_description|safe }}
+                                <br>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="full-specifiction">
+								{{ product.full_description|safe }}
+							</div>
+                            <div class="tab-pane fade reviews-section" id="reviews" aria-expanded="false">
+								<div class="row">
+									<div class="col-12">
+										<h6 class="review-rating-title">Average Ratings and Reviews</h6>
+										<div class="row tab-rating-bar-section">
+											<div class="col-8 col-md-4 col-lg-4">
+												<img src="{% static 'img/review-bg.png' %}" alt="review-bg">
+												<div class="review-rating text-center">
+													<h1 class="rating">4.5</h1>
+													<p>4 Ratings &amp;
+													0 Reviews</p>
+												</div>
+											</div>
+											<div class="col-12 col-md-3 rating-bar-section">
+												<div class="media rating-star-area">
+													<p>5 <i class="fa fa-star" aria-hidden="true"></i></p>
+													<div class="media-body rating-bar">
+														<div class="progress wd-progress">
+															<div class="progress-bar wd-bg-green" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+														</div>
+													</div>
+												</div>
+												<div class="media rating-star-area">
+													<p>4 <i class="fa fa-star" aria-hidden="true"></i></p>
+													<div class="media-body rating-bar">
+														<div class="progress wd-progress">
+															<div class="progress-bar wd-bg-green" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+														</div>
+													</div>
+												</div>
+												<div class="media rating-star-area">
+													<p>3 <i class="fa fa-star" aria-hidden="true"></i></p>
+													<div class="media-body rating-bar">
+														<div class="progress wd-progress">
+															<div class="progress-bar wd-bg-green" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+														</div>
+													</div>
+												</div>
+												<div class="media rating-star-area">
+													<p>2 <i class="fa fa-star" aria-hidden="true"></i></p>
+													<div class="media-body rating-bar">
+														<div class="progress wd-progress">
+															<div class="progress-bar wd-bg-yellow" role="progressbar" style="width: 35%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
+														</div>
+													</div>
+												</div>
+												<div class="media rating-star-area">
+													<p>1 <i class="fa fa-star" aria-hidden="true"></i></p>
+													<div class="media-body rating-bar">
+														<div class="progress wd-progress">
+															<div class="progress-bar wd-bg-red" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<hr>
+
+										<div class="reviews-market">
+											<!--
+												=================================
+												Review Our Product
+												=================================
+											-->
+											<div class="review-our-product text-left row">
+												<div class="col-12 col-lg-6 reviews-title">
+													<h3>Review to our Blurb</h3>
+												</div>
+												<!-- =================================
+													Review Client Section
+													================================= -->
+                                                {% for review in product.reviews_set.all %}
+
+												<div class="col-12 review-our-product-area">
+													<div class="row">
+														<div class="col-12 col-md-6">
+															<div class="row">
+																<div class="col-12">
+																	<div class="media">
+																	  <div class="media-left media-middle">
+																	    <a href="#">
+																	      <img class="media-object" src="{% static 'img/client/client-img-1.png'%}" alt="client-img">
+																	    </a>
+																	  </div>
+																	  <div class="media-body">
+																	    <h4 class="media-heading client-title">{{ review.name }}</h4>
+																	  </div>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="col-12 col-md-6 review-date-time">
+															<p class="review-date">{{ review.created }} </p>
+														</div>
+                                                        <br>
+
+                                                        <div class="media col-md-12">
+                                                          <div class="media-left media-middle">
+                                                            <a href="#">
+{#																      <img class="media-object" src="img/client/client-list-icon-1.png" alt="client-img">#}
+                                                            </a>
+                                                          </div>
+                                                          <div class="media-body">
+                                                            <h6 class="media-heading">Prons</h6>
+                                                              <p class="mt-2 editContent">
+                                                                  {{ review.prons }}
+                                                              </p>
+                                                          </div>
+                                                        </div>
+                                                        <br>
+
+                                                        <div class="media col-md-12">
+                                                          <div class="media-left media-middle">
+                                                            <a href="#">
+{#																      <img class="media-object" src="img/client/client-list-icon-2.png" alt="client-img">#}
+                                                            </a>
+                                                          </div>
+                                                          <div class="media-body">
+                                                            <h6 class="media-heading">Cons</h6>
+                                                              <p class="mt-2 editContent">
+                                                                  {{ review.cons }}
+                                                              </p>
+                                                          </div>
+                                                            <a href="#formReview" onclick="addReview('{{ review.name }}', '{{ review.id }}')">Answer</a>
+                                                        </div>
+
+
+													</div>
+													</div>
+												</div>
+
+                                                {% endfor %}
+											</div>
+
+											<!--
+												=================================
+												Review Comment Section
+												=================================
+											-->
+											<div class="review-comment-section">
+												<div class="row">
+													<div class="col-12 col-md-12 col-lg-12 col-xl-8">
+														<div class="reviews-title leave-opinion">
+															<h3>Leave your Opinion here</h3>
+														</div>
+														<form action="{% url 'add_review' product.id %}" method="post" id="formReview">
+                                                            {% csrf_token %}
+                                                            <input type="hidden" name="parent" id="contactparent" value="">
+															<div class="row">
+																<div class="col-md-6">
+																	<div class="form-group">
+																		<label for="first" class="color-black">Name *</label>
+																		<input type="text" name="name" class="form-control" placeholder="" id="first">
+																	</div>
+																</div>
+
+																<div class="col-md-6">
+																	<div class="form-group">
+																		<label for="last" class="color-black">Email *</label>
+																		<input type="email" name="email" class="form-control" placeholder="" id="last">
+																	</div>
+																</div>
+
+																<div class="col-md-6">
+																	<div class="form-group">
+																		<label for="last" class="color-green">Prons</label>
+																			<textarea name="prons" class="form-control col-md-12" id="exampleFormControlTextarea1" placeholder="Write your Opinion here ... "></textarea>
+																	</div>
+																</div>
+
+																<div class="col-md-6">
+																	<div class="form-group">
+																		<label for="exampleFormControlTextarea2" class="color-red">Cons</label>
+																		<textarea name="cons" class="form-control col-12" id="exampleFormControlTextarea2" placeholder="Write your Opinion here ... "></textarea>
+																	</div>
+																</div>
+
+
+
+																<div class="col-md-12">
+																	<button type="submit" class="btn btn-primary review-comment"><i class="fa fa-check" aria-hidden="true"></i> Post Comment</button>
+																</div>
+															</div>
+														</form>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+
+
+
+				</div>
+			</div>
+    	</div>
+    </section>
+
+    <script>
+        function addReview(name, id) {
+            document.getElementById("parent").value = id;
+            document.getElementById("").innerText = '${name}, '
+        }
+    </script>
+{% endblock %}

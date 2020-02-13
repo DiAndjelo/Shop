@@ -1,0 +1,180 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+    <section class="magazine-top">
+        <div class="container-fluid custom-width">
+           <div class="row">
+               <div class="col-lg-2 col-xl-2 d-md-none d-xl-block">
+                  <div class="mag-left-banner">
+                      <img src="{% for product_image in product_images %}
+                                    {% if product_image.product.id == leftbar_product.id and leftbar_product %}
+                                        {{ product_image.image.url }}
+                                    {% else %}
+                                        {% static 'img/no-img' %}
+                                    {% endif %}
+                                {% endfor %}
+                               " alt="">
+                      <a href="{% if leftbar_product %}
+                                    {% url 'product' leftbar_product.id %}
+                               {% else %}
+                                    #
+                               {% endif %}" class="btn btn-primary wd-shop-btn">Shop Now</a>
+                  </div>
+               </div>
+                <div class="col-lg-12 col-xl-10 ">
+                    <!--Holiday deals area start-->
+                    <div class="holiday-deals">
+                        <div class=" row d-flex  align-items-center">
+                            <div class="order-2 order-sm-1 col-lg-12 col-xl-2">
+                                <h6>Profitable Offers</h6>
+                            </div>
+                            <div class="order-3 order-sm-2 col-12 col-sm-8 col-md-9 col-lg-9 col-xl-7">
+                               <!--Single holiday car-->
+                                <div class="holiday-carousel owl-carousel owl-theme">
+                                    {% for topbar_product in topbar_products %}
+                                        {% if topbar_product %}
+                                        <div class="sin-hol-car item">
+                                       <a href="{% url 'product' topbar_product.id %}">
+                                          <div class="hc-l">
+                                            <p>{{ topbar_product.name }}</p>
+                                            <p>{{ topbar_product.mini_description|safe }}</p>
+                                            <p>${{ topbar_product.price }}</p>
+                                        </div>
+                                        <div class="hc-r">
+                                            <img src="{% for product_image in product_images %}
+                                                            {% if product_image.product.id == topbar_product.id %}
+                                                                {{ product_image.image.url }}
+                                                            {% endif %}
+                                                      {% endfor %}
+                                                     " alt="">
+                                        </div>
+                                       </a>
+                                    </div>
+                                        {% endif %}
+                                    {% endfor %}
+
+                                </div>
+
+                            </div>
+                            <div class="order-1 order-sm-3 col-12 col-sm-4 col-md-3 col-lg-3 col-xl-3 ">
+                                <div class="notice-board">
+                                   <a href="{% url 'shop' %}"><img src="{% static "img/icon/notice1.png" %}" alt=""></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Holiday deals area end-->
+                    <!--Magazine Big offer start-->
+                    <div class="big-offer ">
+                    {% if midbar_products.0 %}
+                        <div class="sin-big-offer n1">
+                            <img src="{% for product_image in product_images %}
+                                            {% if product_image.product.id == midbar_products.0.id %}
+                                                {{ product_image.image.url }}
+                                            {% endif %}
+                                      {% endfor %}
+                                                     " alt="">
+                            <a href="{% url 'product' midbar_products.0.id%}" class="btn btn-primary wd-shop-btn pos-1">Shop Now</a>
+                        </div>
+
+                        <div class="sin-big-offer mar-left n2">
+                            <img src="{% for product_image in product_images %}
+                                            {% if product_image.product.id == midbar_products.1.id %}
+                                                {{ product_image.image.url }}
+                                            {% endif %}
+                                      {% endfor %}
+                                                     " alt="">
+                            <a href="{% url 'product' midbar_products.1.id%}" class="btn btn-primary wd-shop-btn pos-2">Shop Now</a>
+
+                        </div>
+
+                        <div class="sin-big-offer n3">
+                            <img src="{% for product_image in product_images %}
+                                            {% if product_image.product.id == midbar_products.2.id %}
+                                                {{ product_image.image.url }}
+                                            {% endif %}
+                                      {% endfor %}
+                                                     " alt="">
+                            <a href="{% url 'product' midbar_products.2.id%}" class="btn btn-primary wd-shop-btn pos-3">Shop Now</a>
+                        </div>
+                    {% endif %}
+                    </div>
+                    <!--Magazine Big offer end-->
+
+                    <div class="mag-details">
+                        <div class="wd-service">
+                            <div class="row">
+                                <div class="col-md-12 col-lg-4 col-xl-4 wow fadeIn animated" data-wow-delay="0.2s">
+                                    <ul class="list-unstyled">
+                                        <li class="media">
+                                            <img class="d-flex mr-3" src="{% static "img/compare-icon.png" %}" alt="compare-icon">
+                                            <div class="media-body">
+                                                <h5 class="wd-service-title mt-0 mb-1">Lets Compare</h5>
+                                                <p>Choose your product with price comparisons make your best deal today</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-12 col-lg-4 col-xl-4 wow fadeIn animated" data-wow-delay="0.4s">
+                                    <ul class="list-unstyled">
+                                        <li class="media">
+                                            <img class="d-flex mr-3" src="{% static "img/review-icon.png" %}" alt="compare-icon">
+                                            <div class="media-body">
+                                                <h5 class="wd-service-title mt-0 mb-1">Take Review</h5>
+                                                <p>Choose your product with price comparisons make your best deal today</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-12 col-lg-4 col-xl-4 wow fadeIn animated" data-wow-delay="0.6s">
+                                    <ul class="list-unstyled">
+                                        <li class="media">
+                                            <img class="d-flex mr-3" src="{% static "img/store-icon.png" %}" alt="compare-icon">
+                                            <div class="media-body">
+                                                <h5 class="wd-service-title mt-0 mb-1">Choose Multi-Vendor Store</h5>
+                                                <p>Choose your product with price comparisons make your best deal today</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           </div>
+        </div>
+    </section>
+
+    <section class="full-carousel">
+        <div class="fullwidth-carousel owl-carousel owl-theme">
+            {% for botbar_product in botbar_products %}
+                {% if botbar_product %}
+
+
+                <div class="sin-fw-carousel item">
+                <a href="{% url 'product' botbar_product.id %}"><img src="{% for product_image in product_images %}
+                                            {% if product_image.product.id == botbar_product.id %}
+                                                {{ product_image.image.url }}
+                                            {% endif %}
+                                      {% endfor %}
+                                                     " alt="">
+                <div class="full-width-con">
+                    <div class="bot-cont">
+                        <h2>${{ botbar_product.price }}</h2>
+                        <a href="{% url 'product' botbar_product.id %}">{{ botbar_product.category }} - {{ botbar_product.name }} - {{ botbar_product.mini_description|safe }}</a>
+                    </div>
+                    <div class="bottom-line">
+                        <h2><a href="">Manage To Buy</a></h2>
+                    </div>
+                </div>
+                </a>
+            </div>
+                {% endif %}
+            {% endfor %}
+
+
+
+
+        </div>
+    </section>
+{% endblock %}
